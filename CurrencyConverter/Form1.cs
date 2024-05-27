@@ -25,42 +25,80 @@ namespace CurrencyConverter
         private void button1_Click(object sender, EventArgs e)
         {
             int i = int.Parse(aAmount.Text);
-
-            if (aFromCombo1.SelectedItem == "Zlote" && aToCombo2.SelectedItem == "Qar")
+            if (aFromCombo1.SelectedItem == "Zlote")
             {
-                double conver = i * 0.86;
-                aDisplay.Text = "Converted Amount : " + conver + "\t Qar";
+                switch (aToCombo2.SelectedItem)
+                {
+                    case "Qar":
+                        aDisplay.Text = "Converted Amount : " + i * 0.86 + "\t Qar";
+                        break;
+                    case "Euro":
+                        aDisplay.Text = "Converted Amount : " + i * 0.22 + "\t Euro";
+                        break;
+                    case "USD":
+                        aDisplay.Text = "Converted Amount : " + i * 0.26 + "\t USD";
+                        break;
+                    default:
+                        MessageBox.Show("ERROR");
+                        break;
+                }
             }
-            if (aFromCombo1.SelectedItem == "Qar" && aToCombo2.SelectedItem == "Zlote")
+            else if (aFromCombo1.SelectedItem == "Qar")
             {
-                double conver = i / 0.86;
-                aDisplay.Text = "Converted Amount : " + conver +"\t Zlote";
+                switch (aToCombo2.SelectedItem)
+                {
+                    case "Zlote":
+                        aDisplay.Text = "Converted Amount : " + i / 0.86 + "\t Zlote";
+                        break;
+                    case "Euro":
+                        aDisplay.Text = "Converted Amount : " + i * 0.26 + "\t Euro";
+                        break;
+                    case "USD":
+                        aDisplay.Text = "Converted Amount : " + i * 0.27 + "\t USD";
+                        break;
+                    default:
+                        MessageBox.Show("ERROR");
+                        break;
+                }
             }
-
-            if (aFromCombo1.SelectedItem == "Zlote" && aToCombo2.SelectedItem == "Euro")
+            else if (aFromCombo1.SelectedItem == "Euro")
             {
-                double conver = i * 0.22;
-                aDisplay.Text = "Converted Amount : " + conver+"\t Euro";
+                switch (aToCombo2.SelectedItem)
+                {
+                    case "Qar":
+                        aDisplay.Text = "Converted Amount : " + i / 0.26 + "\t Qar";
+                        break;
+                    case "Zlote":
+                        aDisplay.Text = "Converted Amount : " + i / 0.22 + "\t Zlote";
+                        break;
+                    case "USD":
+                        aDisplay.Text = "Converted Amount : " + i * 0.92 + "\t USD";
+                        break;
+                    default:
+                        MessageBox.Show("ERROR");
+                        break;
+                }
             }
-
-            if (aFromCombo1.SelectedItem == "Euro" && aToCombo2.SelectedItem == "Zlote")
+            else if (aFromCombo1.SelectedItem == "USD")
             {
-               double conver = i / 0.22;
-                aDisplay.Text = "Converted Amount : " + conver + "\t Zlote";
-               
+                switch (aToCombo2.SelectedItem)
+                {
+                    case "Qar":
+                        aDisplay.Text = "Converted Amount : " + i / 0.27 + "\t Qar";
+                        break;
+                    case "Zlote":
+                        aDisplay.Text = "Converted Amount : " + i / 0.26 + "\t Zlote";
+                        break;
+                    case "Euro":
+                        aDisplay.Text = "Converted Amount : " + i * 0.92 + "\t Euro";
+                        break;
+                    default:
+                        MessageBox.Show("ERROR");
+                        break;
+                }
             }
-
-            if (aFromCombo1.SelectedItem == "Qar" && aToCombo2.SelectedItem == "Euro")
-            {
-                double conver = i * 0.26;
-                aDisplay.Text = "Converted Amount : " + conver +"\t Euro";
+            else { MessageBox.Show("ERROR"); }
             }
-            if (aFromCombo1.SelectedItem == "Euro" && aToCombo2.SelectedItem == "Qar")
-            {
-                double conver = i / 0.26;
-                aDisplay.Text = "Converted Amount : " + conver + "\t Qar";
-            }
-            
         }
     }
-}
+
